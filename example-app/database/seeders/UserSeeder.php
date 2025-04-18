@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         // Tạo các vai trò
-        $roleNames = ['admin', 'user', 'editor', 'viewer', 'moderator'];
+        $roleNames = ['admin', 'user', 'editor', 'manager', 'aplly'];
         $roles = [];
         foreach ($roleNames as $name) {
             $roles[$name] = Role::create(['name' => $name]);
@@ -46,7 +46,7 @@ class UserSeeder extends Seeder
         for ($i = 1; $i < 100; $i++) {
             $user = User::create([
                 'name' => 'user' . $i,
-                'email' => 'lmp' . $i . '@gmail.com',
+                'email' => 'user' . $i . '@gmail.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('123456'),
                 'remember_token' => Str::random(10)
